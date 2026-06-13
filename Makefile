@@ -5,7 +5,7 @@ SRC      = main.cpp
 INSTANCE = t2g10_5555.txt
 CONFIG   = ga_config.txt
 
-.PHONY: all run clean rebuild
+.PHONY: all run test clean rebuild
 
 all: $(TARGET)
 
@@ -14,6 +14,14 @@ $(TARGET): $(SRC)
 
 run: $(TARGET)
 	./$(TARGET) $(INSTANCE) $(CONFIG)
+
+test: $(TARGET)
+	python3 run_tests.py
+	python3 generate_figures.py
+
+pdf:
+	pdflatex Documentation.tex
+	pdflatex Documentation.tex
 
 clean:
 	rm -f $(TARGET)

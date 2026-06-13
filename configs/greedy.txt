@@ -1,0 +1,21 @@
+population_size = 100
+nfe_budget = 50000
+max_generations = 0
+crossover_rate = 0.8
+tournament_size = 3
+elitism_count = 2
+mutation_rate = 0
+random_seed = 0
+
+greedy_by_node_enabled = 1
+greedy_by_node_repair_rate = 0.5
+greedy_by_node_preserve_fraction = 0.2
+
+ranked_mutation_enabled = 0
+ranked_mutation_min_multiplier = 0.25
+ranked_mutation_max_multiplier = 2.0
+ranked_mutation_normalize = 1
+
+balancer_enabled = 0
+balancer_min_fraction = 0.4
+balancer_max_fraction = 0.6

@@ -898,9 +898,56 @@ void print_result(const GAResult& result, long long nfe_budget) {
     std::cout << "\n";
 }
 
+void print_result_json(
+    const GAResult& result,
+    const GAConfig& config,
+    const std::string& instance_path,
+    const std::string& config_path) {
+    std::cout << "{";
+    std::cout << "\"instance\":\"" << instance_path << "\"";
+    std::cout << ",\"config\":\"" << config_path << "\"";
+    std::cout << ",\"heuristics\":{";
+    std::cout << "\"greedy_by_node\":" << (config.greedy_by_node_enabled ? "true" : "false");
+    std::cout << ",\"ranked_mutation\":" << (config.ranked_mutation_enabled ? "true" : "false");
+    std::cout << ",\"balancer\":" << (config.balancer_enabled ? "true" : "false");
+    std::cout << "}";
+    std::cout << ",\"cut_value\":" << result.best_fitness;
+    std::cout << ",\"nfe\":" << result.fitness_evaluations;
+    std::cout << ",\"nfe_budget\":" << config.nfe_budget;
+    std::cout << ",\"generations\":" << result.generations_run;
+    std::cout << std::fixed << std::setprecision(6);
+    std::cout << ",\"elapsed_ms\":" << result.elapsed_ms;
+    std::cout << ",\"stop_reason\":\"" << result.stop_reason << "\"";
+    std::cout << ",\"solution\":[";
+    for (size_t i = 0; i < result.best_solution.size(); ++i) {
+        std::cout << result.best_solution[i];
+        if (i + 1 < result.best_solution.size()) {
+            std::cout << ',';
+        }
+    }
+    std::cout << "]";
+    std::cout << "}\n";
+}
+
 int main(int argc, char* argv[]) {
-    const std::string instance_path = (argc > 1) ? argv[1] : "t2g10_5555.txt";
-    const std::string config_path = (argc > 2) ? argv[2] : "ga_config.txt";
+    bool json_mode = false;
+    std::string instance_path = "Instances/t2g10_5555.txt";
+    std::string config_path = "ga_config.txt";
+
+    int positional = 0;
+    for (int i = 1; i < argc; ++i) {
+        const std::string arg(argv[i]);
+        if (arg == "--json") {
+            json_mode = true;
+        } else if (arg[0] != '-') {
+            if (positional == 0) {
+                instance_path = arg;
+            } else if (positional == 1) {
+                config_path = arg;
+            }
+            ++positional;
+        }
+    }
 
     Graph graph;
     if (!load_graph(instance_path, graph)) {
@@ -950,14 +997,21 @@ int main(int argc, char* argv[]) {
             config.ranked_mutation_normalize);
     }
 
-    std::cout << "Baseline Genetic Algorithm (Max-Cut)\n";
-    std::cout << "Instance: " << instance_path << "\n";
-    std::cout << "Vertices: " << graph.num_vertices << ", Edges: " << graph.edges.size() << "\n";
-    print_config(config, config_path, auto_mutation, greedy_by_node, ranked_mutation);
-    std::cout << "\n";
+    if (!json_mode) {
+        std::cout << "Baseline Genetic Algorithm (Max-Cut)\n";
+        std::cout << "Instance: " << instance_path << "\n";
+        std::cout << "Vertices: " << graph.num_vertices << ", Edges: " << graph.edges.size() << "\n";
+        print_config(config, config_path, auto_mutation, greedy_by_node, ranked_mutation);
+        std::cout << "\n";
+    }
 
     const GAResult result = run_genetic_algorithm(
         graph, config, rng, node_ranking, greedy_by_node, ranked_mutation);
-    print_result(result, config.nfe_budget);
+
+    if (json_mode) {
+        print_result_json(result, config, instance_path, config_path);
+    } else {
+        print_result(result, config.nfe_budget);
+    }
     return 0;
 }

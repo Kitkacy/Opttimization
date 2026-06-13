@@ -1,0 +1,46 @@
+\contentsline {section}{\numberline {1}Problem Description}{3}{section.1}%
+\contentsline {section}{\numberline {2}What We Optimize}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Objective Function}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Practical Evaluation}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Solution Encoding}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Encoding Type}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Genetic Operators}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Symmetry}{4}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Problem Instances}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}File Format}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Instance Families}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Summary Table}{7}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Baseline Genetic Algorithm}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Algorithm Outline}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Selection}{8}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Crossover}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Mutation}{8}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Elitism}{9}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Termination Criterion}{9}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Configuration Summary}{9}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Rationale as a Baseline}{10}{subsection.5.8}%
+\contentsline {section}{\numberline {6}Metaheuristic Enhancements}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Greedy-by-Node Repair}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Ranked Mutation}{11}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Balancer}{12}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Testing Methodology}{13}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Objectives and Scope}{13}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Test Matrix}{13}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Test Automation}{13}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Measured Metrics}{14}{subsection.7.4}%
+\contentsline {paragraph}{Best cut value.}{14}{section*.6}%
+\contentsline {paragraph}{Mean and standard deviation of cut value.}{14}{section*.7}%
+\contentsline {paragraph}{Number of fitness function evaluations (NFE).}{14}{section*.8}%
+\contentsline {paragraph}{Wall-clock time.}{14}{section*.9}%
+\contentsline {paragraph}{Number of generations.}{15}{section*.10}%
+\contentsline {subsection}{\numberline {7.5}Experimental Platform}{15}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Reproducibility}{15}{subsection.7.6}%
+\contentsline {section}{\numberline {8}Results}{16}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Overview}{16}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Complete Results Tables}{16}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Visualisation}{17}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Analysis}{19}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Heuristic effectiveness is instance-structure dependent}{19}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Balancer is the most robust single heuristic}{19}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Combining heuristics does not compound their benefits}{20}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Computational cost is negligible}{20}{subsection.9.4}%
